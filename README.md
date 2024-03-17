@@ -1,6 +1,11 @@
 # flutter_movie_app
 
-A new Flutter project.
+Flutter interview task - **Movie Application**
+
+## Screenshots
+
+<img src="./screenshots/movies.png" alt="HOME_MOVIE_LIST" width="200"/> <img src="./screenshots/details.png" alt="MOVIE_DETAILS" width="200"/> <img src="./screenshots/login.png" alt="LOGIN" width="200"/> <img src="./screenshots/profile.png" alt="PROFILE" width="200"/>
+<img src="./screenshots/video.gif" alt="VIDEOS" width="200"/>
 
 ## Getting Started
 
