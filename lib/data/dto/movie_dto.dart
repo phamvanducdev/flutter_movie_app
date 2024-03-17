@@ -1,4 +1,5 @@
 import 'package:flutter_movie_app/domain/entity/movie.dart';
+import 'package:flutter_movie_app/shared/helpers/json_helper.dart';
 
 class MovieDto {
   final String id;
@@ -38,8 +39,8 @@ class MovieDto {
       duration: json['duration'],
       year: json['year'],
       releaseDate: json['releaseDate'],
-      imdbRating: jsonToDouble(json['imdbRating']),
-      averageRating: jsonToDouble(json['averageRating']),
+      imdbRating: JsonHelper.parseToDouble(json['imdbRating']),
+      averageRating: JsonHelper.parseToDouble(json['averageRating']),
       contentRating: json['contentRating'],
       genres: List<String>.from(json['genres']),
       actors: List<String>.from(json['actors']),
@@ -77,17 +78,4 @@ class MovieDto {
         'genres': genres,
         'actors': actors,
       };
-}
-
-double jsonToDouble(dynamic json) {
-  switch (json.runtimeType) {
-    case String:
-      return double.tryParse(json) ?? 0.0;
-    case int:
-      return json.toDouble();
-    case double:
-      return json;
-    default:
-      return 0.0;
-  }
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "150303441591",
+    "project_id": "ducpv-flutter-movie-app",
+    "storage_bucket": "ducpv-flutter-movie-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150303441591:android:668e7bf7eddb42f6528332",
+        "android_client_info": {
+          "package_name": "com.ducpv.flutter_movie_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWAXqdccd8KMGNEhfMT7uwwosvMCvh4xk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

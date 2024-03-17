@@ -1,13 +1,21 @@
+// ignore_for_file: constant_identifier_names
+
 import 'dart:convert';
 
 import 'package:flutter_movie_app/data/dto/movie_dto.dart';
+import 'package:flutter_movie_app/data/dto/user_dto.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-// ignore: constant_identifier_names
-const MOVIE_LIST_KEY = 'movies';
-const MOVIE_LIST_SAVED_KEY = 'movies-saved';
+const USER_LOGGED_KEY = 'user-logged';
+const MOVIE_LIST_KEY = 'movie-list';
+const MOVIE_LIST_SAVED_KEY = 'movie-list-saved';
 
 abstract class DataStorage {
+  // Save user logged information
+  Future<void> saveUserLogged(UserDto userLogged);
+  Future<UserDto?> getUserLogged();
+  Future<bool> removeUserLogged();
+
   // Save movies fetched
   Future<bool> saveMovieList(List<MovieDto> movies);
   Future<List<MovieDto>> getMovieList();
@@ -24,6 +32,25 @@ class DataStorageImpl implements DataStorage {
   DataStorageImpl({
     required SharedPreferences sharedPref,
   }) : _sharedPref = sharedPref;
+
+  @override
+  Future<UserDto?> getUserLogged() async {
+    final String? string = _sharedPref.getString(USER_LOGGED_KEY);
+    if (string == null) {
+      return null;
+    }
+    return UserDto.fromMap(json.decode(string));
+  }
+
+  @override
+  Future<void> saveUserLogged(UserDto userLogged) async {
+    await _sharedPref.setString(USER_LOGGED_KEY, jsonEncode(userLogged.toMap()));
+  }
+
+  @override
+  Future<bool> removeUserLogged() async {
+    return await _sharedPref.remove(USER_LOGGED_KEY);
+  }
 
   @override
   Future<List<MovieDto>> getMovieList() async {

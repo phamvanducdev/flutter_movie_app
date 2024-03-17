@@ -9,9 +9,8 @@ import 'package:flutter_movie_app/presentation/details/details_bloc.dart';
 import 'package:flutter_movie_app/presentation/details/widgets/about_info.dart';
 import 'package:flutter_movie_app/presentation/details/widgets/item_cast.dart';
 import 'package:flutter_movie_app/shared/helpers/movie_helper.dart';
-import 'package:flutter_movie_app/shared/widgets/network_image.dart';
+import 'package:flutter_movie_app/shared/widgets/app_network_image.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -69,7 +68,7 @@ class _DetailsPageState extends State<DetailsPage> {
         backgroundColor: Colors.transparent,
         systemOverlayStyle: const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
         leading: IconButton(
-          onPressed: () => context.pop(),
+          onPressed: () => Navigator.pop(context),
           icon: SvgPicture.asset('assets/icons/ic_back.svg'),
         ),
         actions: [
@@ -103,7 +102,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 children: [
                   SizedBox(
                     width: double.infinity,
-                    child: NetworkImageCached(imageUrl: movie.posterUrl, boxFit: BoxFit.cover),
+                    child: AppNetworkImage(imageUrl: movie.posterUrl, boxFit: BoxFit.cover),
                   ),
                   ClipRRect(
                     child: BackdropFilter(
@@ -115,7 +114,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   ),
                   SizedBox(
                     width: double.infinity,
-                    child: NetworkImageCached(imageUrl: movie.posterUrl, boxFit: BoxFit.fitHeight),
+                    child: AppNetworkImage(imageUrl: movie.posterUrl, boxFit: BoxFit.fitHeight),
                   ),
                   Container(
                     height: 16.0,

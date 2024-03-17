@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/domain/entity/movie.dart';
 import 'package:flutter_movie_app/shared/helpers/movie_helper.dart';
-import 'package:flutter_movie_app/shared/widgets/network_image.dart';
+import 'package:flutter_movie_app/shared/widgets/app_network_image.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ItemMovie extends StatelessWidget {
@@ -30,7 +30,7 @@ class ItemMovie extends StatelessWidget {
                 aspectRatio: 85 / 125,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12.0),
-                  child: NetworkImageCached(imageUrl: movie.posterUrl),
+                  child: AppNetworkImage(imageUrl: movie.posterUrl),
                 ),
               ),
             ),

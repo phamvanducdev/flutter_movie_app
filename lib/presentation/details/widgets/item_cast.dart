@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/shared/widgets/network_image.dart';
+import 'package:flutter_movie_app/shared/widgets/app_network_image.dart';
 
 class ItemCast extends StatelessWidget {
   final String name;
@@ -24,7 +24,7 @@ class ItemCast extends StatelessWidget {
             borderRadius: BorderRadius.circular(12.0),
             child: AspectRatio(
               aspectRatio: 1.0,
-              child: NetworkImageCached(imageUrl: avatar),
+              child: AppNetworkImage(imageUrl: avatar),
             ),
           ),
           const SizedBox(height: 8.0),
