@@ -7,8 +7,8 @@ class UserInfo {
 
   UserInfo({
     required this.uid,
-    required this.email,
-    required this.displayName,
+    this.email,
+    this.displayName,
   });
 
   factory UserInfo.fromUserDto(UserDto dto) => UserInfo(

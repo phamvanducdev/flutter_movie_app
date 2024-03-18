@@ -27,11 +27,19 @@ class HomeBLoC implements BaseBLoC {
   }
 
   Future<void> fetchUserLogged() async {
-    _userLoggedObject.add(await _authRepository.getUserLogged());
+    try {
+      _userLoggedObject.add(await _authRepository.getUserLogged());
+    } catch (e) {
+      _userLoggedObject.add(null);
+    }
   }
 
   Future<void> fetchMovieList() async {
-    _movieListObject.add(await _movieRepository.fetchMovieList());
+    try {
+      _movieListObject.add(await _movieRepository.fetchMovieList());
+    } catch (e) {
+      _movieListObject.add([]);
+    }
   }
 
   Future<void> requestLogout() async {
